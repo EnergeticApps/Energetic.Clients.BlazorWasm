@@ -14,7 +14,7 @@ namespace Energetic.Clients.BlazorWasm.Views
         where TViewModel : class, IViewModel
     {
         [Inject]
-        protected TViewModel? ViewModel { get; set; }
+        protected TViewModel ViewModel { get; set; } = default!;
 
         public EventCallback BindToCommand(ICommand command)
         {
