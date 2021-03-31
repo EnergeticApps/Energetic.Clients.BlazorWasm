@@ -30,11 +30,14 @@
 
 	<ItemGroup>
 		<PackageReference Include="Blazored.LocalStorage" Version="3.0.0" />
-		<PackageReference Include="Energetic.Clients" Version="0.0.2-alpha" />
 		<PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.12" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.12" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="3.2.1" />
 		<PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Energetic.Clients\Energetic.Clients.csproj" />
 	</ItemGroup>
 
 </Project>
