@@ -22,9 +22,22 @@ namespace Energetic.Clients.BlazorWasm.Views
                 throw new InvalidOperationException($"Can't bind a null reference of {typeof(ICommand)} to an {typeof(EventCallback)}.");
 
             var commandDelegate = new CommandDelegate(command.Execute);
+
             return new EventCallback(this, commandDelegate);
         }
-        
+
+        public EventCallback BindToCommand<T>(ICommand command, T parameter)
+        {
+            if (command is null)
+                throw new InvalidOperationException($"Can't bind a null reference of {typeof(ICommand)} to an {typeof(EventCallback)}.");
+
+            if (parameter is null)
+                throw new InvalidOperationException($"This overload requires a parameter to be passed to the {typeof(ICommand)}.");
+
+            return EventCallback.Factory.Create(this, () => command.Execute(parameter));
+        }
+
+        //private delegate void CommandDelegate();
         private delegate void CommandDelegate(object? parameter = null);
 
         public void Dispose()
